@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Card } from "./components/layout/card";
 import { MenuView } from "./views/menu.view";

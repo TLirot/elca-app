@@ -1,6 +1,6 @@
-import { CoinType } from "../coin.type";
+export type CoinType = "USD" | "GBP" | "EUR";
 
-export interface Price {
+export interface PriceModel {
     code: CoinType,
     rate: string,
     description: string,
