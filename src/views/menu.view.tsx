@@ -8,10 +8,10 @@ export class MenuView extends Component {
         return (
             <Nav>
                 <NavLink>
-                    <Link className={"nav-link"} to={AppRoutesEnum.fibonacci}>Fibonacci</Link>
+                    <Link className={"nav-link"} to={AppRoutesEnum.bitcoin}>Bitcoin</Link>
                 </NavLink>
                 <NavLink>
-                    <Link className={"nav-link"} to={AppRoutesEnum.bitcoin}>Exercise 3</Link>
+                    <Link className={"nav-link"} to={AppRoutesEnum.fibonacci}>Fibonacci</Link>
                 </NavLink>
             </Nav>
         );

@@ -73,7 +73,7 @@ export class CoinInfoView extends Component<CoinInfoViewProps, CoinInfoViewState
                 <hr />
                 <Row>
                     <Col className={"col-auto"}>
-                        {dayjs(this.props.updateISOTime).format("MMM-DD HH:mm:ss")}
+                        {dayjs(this.props.updateISOTime).format("MMM-DD HH:mm")}
                     </Col>
                 </Row>
             </Card>
