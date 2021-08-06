@@ -5,13 +5,15 @@ import { Button, Spinner } from "react-bootstrap";
 import { CoinInfoView } from "./coin-info.view";
 
 interface BitcoinViewState {
-    currentCoinsStatus: CurrentCoinsStatus | undefined
+    currentCoinsStatus: CurrentCoinsStatus | undefined;
+    errorData: string | undefined;
 }
 
 export class BitcoinView extends Component<Record<never, never>, BitcoinViewState> {
 
     readonly state: Readonly<BitcoinViewState> = {
         currentCoinsStatus: undefined,
+        errorData: undefined,
     }
 
     constructor (props: Record<never, never>) {
@@ -30,6 +32,7 @@ export class BitcoinView extends Component<Record<never, never>, BitcoinViewStat
             this.setState({currentCoinsStatus: result});
         }catch (error){
             console.error(error);
+            this.setState({errorData: "Network error. Please wait a few minutes and reload the page."});
         }
     }
 
@@ -65,6 +68,10 @@ export class BitcoinView extends Component<Record<never, never>, BitcoinViewStat
                         </div>
                     </div>
                 )
+                :
+                this.state.errorData
+                ?
+                this.state.errorData
                 :
                 (
                     <Spinner animation={"grow"} />

@@ -24,15 +24,15 @@ export class FibonacciView extends Component<Record<never, never>, FibonacciView
     handleOnChange(event: ChangeEvent<HTMLInputElement>): void {
         const eventValue: string = event.currentTarget.value;
 
-        if(this.isInvalidNumber(eventValue)){
-            this.setErrorAndClearValue();
-        } else{
+        if(this.isValidNumber(eventValue)){
             this.setValueAndClearError(eventValue);
+        } else{
+            this.setErrorAndClearValue();
         }
     }
 
-    isInvalidNumber(value: string): boolean{
-        return Boolean(value.match(/[^0-9]/));
+    isValidNumber(value: string): boolean {
+        return !value.match(/[^0-9]/) && Number(value) <= 500;
     }
 
     setValueAndClearError(value: string): void {
@@ -44,13 +44,13 @@ export class FibonacciView extends Component<Record<never, never>, FibonacciView
 
     setErrorAndClearValue(): void {
         this.setState({
-            error: "Please type only whole numbers.",
+            error: "Please type a whole number equal or less than 500.",
             inputValue: "",
-        })
+        });
     }
 
     renderFibonacci(value: string): string {
-        if (value === "" || this.isInvalidNumber(value)) {
+        if (value === "" || !this.isValidNumber(value)) {
             return "";
         } else {
             return this.fibonacci(Number(value)).toString();
