@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FibonacciView => Should render correctly 1`] = `
+<Form>
+  <FormGroup
+    className="mb-3"
+  >
+    <FormLabel
+      column={false}
+      visuallyHidden={false}
+    >
+      Number
+    </FormLabel>
+    <FormControl
+      onChange={[Function]}
+      type="text"
+      value="typedValue"
+    />
+    <FormText>
+      error render
+    </FormText>
+  </FormGroup>
+  <Row>
+    <Col
+      className="col-auto"
+    >
+      fibonacci list
+    </Col>
+  </Row>
+</Form>
+`;

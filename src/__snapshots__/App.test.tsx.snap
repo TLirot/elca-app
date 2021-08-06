@@ -1,32 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App renders learn react link 1`] = `
-<div
-  className="App"
+<Card
+  title="ELCA APP - TORIL CASTILLO, MIGUEL"
 >
-  <header
-    className="App-header"
+  <BrowserRouter
+    basename="/"
   >
-    <img
-      alt="logo"
-      className="App-logo"
-      src="logo.svg"
+    <MenuView />
+    <Switch>
+      <Route
+        path="/fibonacci"
+      >
+        <FibonacciView />
+      </Route>
+      <Route
+        path="/bitcoin"
+      >
+        <BitcoinView />
+      </Route>
+    </Switch>
+    <Redirect
+      to="/bitcoin"
     />
-    <p>
-      Edit 
-      <code>
-        src/App.tsx
-      </code>
-       and save to reload.
-    </p>
-    <a
-      className="App-link"
-      href="https://reactjs.org"
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      Learn React
-    </a>
-  </header>
-</div>
+  </BrowserRouter>
+</Card>
 `;

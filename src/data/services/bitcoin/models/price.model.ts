@@ -6,3 +6,10 @@ export interface PriceModel {
     description: string,
     rate_float: number,
 }
+
+export interface ECPriceModel {
+    code: CoinType,
+    rate: string,
+    description: string,
+    rate_float: number,
+}

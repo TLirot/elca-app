@@ -1,7 +1,7 @@
 import { ChangeEvent, Component, ReactNode } from "react";
 import { Col, Form, Row } from "react-bootstrap";
 
-interface FibonacciViewState {
+export interface FibonacciViewState {
     fibonacciNumbers: number[];
     error: string;
     inputValue: string;
@@ -21,35 +21,35 @@ export class FibonacciView extends Component<Record<never, never>, FibonacciView
         this.handleOnChange = this.handleOnChange.bind(this);
     }
 
-    handleOnChange(event: ChangeEvent<HTMLInputElement>): void {
+    handleOnChange (event: ChangeEvent<HTMLInputElement>): void {
         const eventValue: string = event.currentTarget.value;
 
-        if(this.isValidNumber(eventValue)){
+        if (this.isValidNumber(eventValue)) {
             this.setValueAndClearError(eventValue);
-        } else{
+        } else {
             this.setErrorAndClearValue();
         }
     }
 
-    isValidNumber(value: string): boolean {
+    isValidNumber (value: string): boolean {
         return !value.match(/[^0-9]/) && Number(value) <= 500;
     }
 
-    setValueAndClearError(value: string): void {
+    setValueAndClearError (value: string): void {
         this.setState({
             inputValue: value,
             error: "",
         });
     }
 
-    setErrorAndClearValue(): void {
+    setErrorAndClearValue (): void {
         this.setState({
             error: "Please type a whole number equal or less than 500.",
             inputValue: "",
         });
     }
 
-    renderFibonacci(value: string): string {
+    renderFibonacci (value: string): string {
         if (value === "" || !this.isValidNumber(value)) {
             return "";
         } else {
@@ -57,12 +57,12 @@ export class FibonacciView extends Component<Record<never, never>, FibonacciView
         }
     }
 
-    fibonacci(length: number): number[] {
-        let fibonacciList = [0, 1];
+    fibonacci (length: number): number[] {
+        let fibonacciList = [ 0, 1 ];
 
-        if (length === 0) return [0];
-        if (length === 1) return [1];
-        if (length >= 2){
+        if (length === 0) return [ 0 ];
+        if (length === 1) return [ 1 ];
+        if (length >= 2) {
             for (let i = 2; i < length; i++) {
                 fibonacciList[i] = fibonacciList[i - 2] + fibonacciList[i - 1];
             }

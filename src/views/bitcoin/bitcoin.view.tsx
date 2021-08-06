@@ -1,11 +1,11 @@
 import { Component, ReactNode } from "react";
-import { CurrentCoinsStatus } from "../../data/services/bitcoin/models/current-coins-status.model";
+import { ECCurrentCoinsStatus } from "../../data/services/bitcoin/models/current-coins-status.model";
 import { BitcoinServices } from "../../data/services/bitcoin/bitcoin.services";
 import { Button, Spinner } from "react-bootstrap";
 import { CoinInfoView } from "./coin-info.view";
 
 interface BitcoinViewState {
-    currentCoinsStatus: CurrentCoinsStatus | undefined;
+    currentCoinsStatus: ECCurrentCoinsStatus | undefined;
     errorData: string | undefined;
 }
 
@@ -22,22 +22,22 @@ export class BitcoinView extends Component<Record<never, never>, BitcoinViewStat
         this.fetchCurrentStatus = this.fetchCurrentStatus.bind(this);
     }
 
-    async componentDidMount(): Promise<void> {
+    async componentDidMount (): Promise<void> {
         await this.fetchCurrentStatus();
     }
 
-    async fetchCurrentStatus(): Promise<void> {
+    async fetchCurrentStatus (): Promise<void> {
         try {
             const result = await new BitcoinServices().coinStatus();
-            this.setState({currentCoinsStatus: result});
-        }catch (error){
+            this.setState({ currentCoinsStatus: result });
+        } catch (error) {
             console.error(error);
-            this.setState({errorData: "Network error. Please wait a few minutes and reload the page."});
+            this.setState({ errorData: "Network error. Please wait a few minutes and reload the page." });
         }
     }
 
     realoadData (): void {
-        this.setState({currentCoinsStatus: undefined}, this.fetchCurrentStatus);
+        this.setState({ currentCoinsStatus: undefined }, this.fetchCurrentStatus);
     }
 
     render (): ReactNode {
@@ -49,17 +49,17 @@ export class BitcoinView extends Component<Record<never, never>, BitcoinViewStat
                         <div className={"col-4"}>
                             <CoinInfoView
                                 {...this.state.currentCoinsStatus.bpi.EUR}
-                                updateISOTime={this.state.currentCoinsStatus.time.updatedISO} />
+                                updateISOTime={this.state.currentCoinsStatus.time.updatedISO}/>
                         </div>
                         <div className={"col-4"}>
                             <CoinInfoView
                                 {...this.state.currentCoinsStatus.bpi.USD}
-                                updateISOTime={this.state.currentCoinsStatus.time.updatedISO} />
+                                updateISOTime={this.state.currentCoinsStatus.time.updatedISO}/>
                         </div>
                         <div className={"col-4"}>
                             <CoinInfoView
                                 {...this.state.currentCoinsStatus.bpi.GBP}
-                                updateISOTime={this.state.currentCoinsStatus.time.updatedISO} />
+                                updateISOTime={this.state.currentCoinsStatus.time.updatedISO}/>
                         </div>
                         <div className={"row justify-content-around my-3"}>
                             <div className={"col-2"}>
@@ -70,12 +70,12 @@ export class BitcoinView extends Component<Record<never, never>, BitcoinViewStat
                 )
                 :
                 this.state.errorData
-                ?
-                this.state.errorData
-                :
-                (
-                    <Spinner animation={"grow"} />
-                )
+                    ?
+                    this.state.errorData
+                    :
+                    (
+                        <Spinner animation={"grow"}/>
+                    )
         );
     }
 }

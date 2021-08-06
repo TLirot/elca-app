@@ -3,3 +3,7 @@ export interface TimeModel {
     updatedISO: string,
     updateduk: string,
 }
+
+export interface ECTimeModel {
+    updatedISO: string,
+}
