@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card => render => Should render only the children. 1`] = `
+<div
+  className="card"
+>
+  <div
+    className="card-body"
+  >
+     
+    <div>
+      children
+    </div>
+     
+  </div>
+</div>
+`;
+
+exports[`Card => render => Should render the title and the children. 1`] = `
+<div
+  className="card"
+>
+  <div
+    className="card-body"
+  >
+    <div
+      className="card-title"
+    >
+      my title
+    </div>
+     
+    <div>
+      children
+    </div>
+     
+  </div>
+</div>
+`;

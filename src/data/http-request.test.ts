@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import { HttpRequest } from "../http-request";
+import { HttpRequest } from "./http-request";
 
 describe("HttpRequest =>", () => {
 
