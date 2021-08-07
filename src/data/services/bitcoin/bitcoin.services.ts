@@ -13,7 +13,6 @@ export class BitcoinServices {
             const response = await this.httpRequest.get<CurrentCoinsStatus>(url);
             return new CoindeskMapper().toECCurrentCoinsStatus(response.data);
         } catch (error) {
-            console.log(error);
             throw error;
         }
     }

@@ -1,12 +1,12 @@
 import React, { FC, ReactElement, ReactNode, useMemo } from "react";
 
-interface CardProps {
+export interface CardProps {
     children: ReactNode,
     title: ReactNode,
 }
 
 export const Card: FC<CardProps> = (props): ReactElement => {
-    const {children, title} = props;
+    const { children, title } = props;
 
     const cardTitle = useMemo(() => {
         return title ? (
@@ -14,7 +14,7 @@ export const Card: FC<CardProps> = (props): ReactElement => {
                 {title}
             </div>
         ) : null
-    }, [title])
+    }, [ title ])
 
     return (
         <div className={"card"}>

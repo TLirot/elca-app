@@ -6,6 +6,11 @@ import { BitcoinServices } from "./bitcoin.services";
 import { CoindeskApi } from "./coindesk.api";
 
 describe("BitcoinServices =>", () => {
+
+    beforeEach(() => {
+        jest.restoreAllMocks();
+    });
+
     describe("coinStatus =>", () => {
         it("Should call HttpRequest.get and return the value mapped to ECCurrentCoinsStatus", async () => {
             const url = "my_endpoint";
