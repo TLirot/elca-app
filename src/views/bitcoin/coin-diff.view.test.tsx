@@ -115,6 +115,7 @@ describe("CoinDiffView =>", () => {
             ])
             ("Should update state with the percentage change between %s and %s and actual rate_float", (prevRate, actualRate, result) => {
                 const wrapper = initShallowComponent({ rate_float: actualRate });
+
                 wrapper.instance().calculateDiff(prevRate);
 
                 expect(wrapper.state()).toStrictEqual({

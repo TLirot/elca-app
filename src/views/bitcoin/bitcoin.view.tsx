@@ -19,7 +19,6 @@ export class BitcoinView extends Component<Record<never, never>, BitcoinViewStat
     constructor (props: Record<never, never>) {
         super(props);
 
-        this.reloadData = this.reloadData.bind(this);
         this.fetchCurrentStatus = this.fetchCurrentStatus.bind(this);
     }
 
@@ -35,12 +34,6 @@ export class BitcoinView extends Component<Record<never, never>, BitcoinViewStat
             console.error(error);
             this.setState({ dataError: "Network error. Please wait a few minutes and reload the page." });
         }
-    }
-
-    reloadData (): void {
-        this.setState({ currentCoinsStatus: undefined }, () => {
-            setTimeout(this.fetchCurrentStatus, 200);
-        });
     }
 
     render (): ReactNode {
@@ -66,7 +59,7 @@ export class BitcoinView extends Component<Record<never, never>, BitcoinViewStat
                         </div>
                         <div className={"row justify-content-around my-3"}>
                             <div className={"col-2"}>
-                                <Button id={"reload-button"} onClick={this.reloadData}>Reload</Button>
+                                <Button id={"reload-button"} onClick={this.fetchCurrentStatus}>Reload</Button>
                             </div>
                         </div>
                     </div>

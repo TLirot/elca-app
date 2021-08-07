@@ -62,7 +62,7 @@ describe("BitcoinView =>", () => {
 
             wrapper.setState({ currentCoinsStatus: mockECCurrentCoinsStatus });
 
-            expect(wrapper.find("#reload-button").find(Button).props().onClick).toBe(wrapper.instance().reloadData);
+            expect(wrapper.find("#reload-button").find(Button).props().onClick).toBe(wrapper.instance().fetchCurrentStatus);
             expect(wrapper).toMatchSnapshot();
         });
 
@@ -137,6 +137,7 @@ describe("BitcoinView =>", () => {
             it("Should set error with 'Network error. Please wait a few minutes and reload the page.' " +
                 "in state if there is a network error", async () => {
                 jest.spyOn(BitcoinServices.prototype, "coinStatus").mockRejectedValue("error");
+                jest.spyOn(console, "error").mockImplementation();
 
                 const wrapper = initShallowComponent();
                 await wrapper.instance().fetchCurrentStatus();
@@ -145,26 +146,6 @@ describe("BitcoinView =>", () => {
                     ...initialState,
                     dataError: "Network error. Please wait a few minutes and reload the page."
                 });
-            });
-        });
-
-        describe("reloadData", () => {
-            it("Should update currentCoinsStatus to undefined and call fetchCurrentStatus", () => {
-                jest.useFakeTimers();
-                const fetchCurrentStatus = jest.spyOn(BitcoinView.prototype, "fetchCurrentStatus").mockImplementation();
-                const wrapper = initShallowComponent();
-
-                wrapper.instance().reloadData();
-                jest.runAllTimers();
-
-                expect(wrapper.state()).toStrictEqual({
-                   ...initialState,
-                    currentCoinsStatus: undefined,
-                });
-                expect(fetchCurrentStatus).toHaveBeenCalledTimes(1);
-                expect(fetchCurrentStatus).toHaveBeenCalledWith();
-
-                jest.useRealTimers();
             });
         });
     });
