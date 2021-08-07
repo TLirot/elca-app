@@ -47,7 +47,7 @@ describe("FibonacciView =>", () => {
         });
     });
 
-    describe("Functions =>", () => {
+    describe("Methods =>", () => {
         beforeEach(() => {
             jest.spyOn(FibonacciView.prototype, "render").mockImplementation();
         });

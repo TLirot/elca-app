@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CoinInfoView => Should render correctly 1`] = `
+<Card
+  title="GBP / GBP Description"
+>
+  <Row
+    className="justify-content-between"
+  >
+    <Col
+      className="col-auto"
+    >
+      <img
+        alt="bitcoin"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2WR24fnzSsiHf1TmpIWQn_E3qgJTLBcsK5w&usqp=CAU"
+        style={
+          Object {
+            "height": "50px",
+            "width": "250px",
+          }
+        }
+      />
+    </Col>
+    <Col
+      className="col-auto align-self-center"
+    >
+      123 €
+    </Col>
+  </Row>
+  <Row
+    className="justify-content-end"
+  >
+    <CoinDiffView
+      rate_float={123}
+    />
+  </Row>
+  <hr />
+  <Row>
+    <Col
+      className="col-auto"
+    >
+      Aug-07 14:45
+    </Col>
+  </Row>
+</Card>
+`;

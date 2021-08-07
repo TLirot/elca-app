@@ -6,19 +6,20 @@ import { CoinInfoView } from "./coin-info.view";
 
 export interface BitcoinViewState {
     currentCoinsStatus: ECCurrentCoinsStatus | undefined;
-    errorData: string | undefined;
+    dataError: string | undefined;
 }
 
 export class BitcoinView extends Component<Record<never, never>, BitcoinViewState> {
 
     readonly state: Readonly<BitcoinViewState> = {
         currentCoinsStatus: undefined,
-        errorData: undefined,
+        dataError: undefined,
     }
 
     constructor (props: Record<never, never>) {
         super(props);
 
+        this.reloadData = this.reloadData.bind(this);
         this.fetchCurrentStatus = this.fetchCurrentStatus.bind(this);
     }
 
@@ -32,12 +33,14 @@ export class BitcoinView extends Component<Record<never, never>, BitcoinViewStat
             this.setState({ currentCoinsStatus: result });
         } catch (error) {
             console.error(error);
-            this.setState({ errorData: "Network error. Please wait a few minutes and reload the page." });
+            this.setState({ dataError: "Network error. Please wait a few minutes and reload the page." });
         }
     }
 
-    realoadData (): void {
-        this.setState({ currentCoinsStatus: undefined }, this.fetchCurrentStatus);
+    reloadData (): void {
+        this.setState({ currentCoinsStatus: undefined }, () => {
+            setTimeout(this.fetchCurrentStatus, 200);
+        });
     }
 
     render (): ReactNode {
@@ -63,15 +66,15 @@ export class BitcoinView extends Component<Record<never, never>, BitcoinViewStat
                         </div>
                         <div className={"row justify-content-around my-3"}>
                             <div className={"col-2"}>
-                                <Button id={"reload-button"} onClick={this.fetchCurrentStatus}>Reload</Button>
+                                <Button id={"reload-button"} onClick={this.reloadData}>Reload</Button>
                             </div>
                         </div>
                     </div>
                 )
                 :
-                this.state.errorData
+                this.state.dataError
                     ?
-                    this.state.errorData
+                    this.state.dataError
                     :
                     (
                         <Spinner animation={"grow"}/>

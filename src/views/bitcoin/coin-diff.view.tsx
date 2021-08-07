@@ -2,11 +2,11 @@ import { Component, CSSProperties, Fragment, ReactNode } from "react";
 import { Col } from "react-bootstrap";
 import { ArrowBarLeft, ArrowDownCircleFill, ArrowUpCircleFill } from "react-bootstrap-icons";
 
-interface CoinDiffViewProps {
+export interface CoinDiffViewProps {
     rate_float: number;
 }
 
-interface CoinDiffViewState {
+export interface CoinDiffViewState {
     diff: number;
 }
 
@@ -41,7 +41,7 @@ export class CoinDiffView extends Component<CoinDiffViewProps, CoinDiffViewState
     }
 
     calculateDiff (prevRateFloat: number): void {
-        const diff = ((prevRateFloat - this.props.rate_float) / prevRateFloat) * 100;
+        const diff = ((this.props.rate_float / prevRateFloat) * 100) - 100;
         this.setState({ diff });
     }
 

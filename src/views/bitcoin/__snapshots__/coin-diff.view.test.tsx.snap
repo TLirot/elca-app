@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CoinDiffView => Should render correctly 1`] = `
+<Fragment>
+  <Col
+    className="col-auto align-self-center"
+  >
+    0.145 %
+  </Col>
+  <Col
+    className="col-auto"
+  >
+    my_icon
+  </Col>
+</Fragment>
+`;
