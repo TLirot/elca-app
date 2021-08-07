@@ -1,6 +1,7 @@
 import { HttpRequest } from "../../http-request";
 import { CurrentCoinsStatus, ECCurrentCoinsStatus } from "./models/current-coins-status.model";
 import { CoindeskApi } from "./coindesk.api";
+import { CoindeskMapper } from "./mappers/coindesk.mapper";
 
 export class BitcoinServices {
 
@@ -10,8 +11,7 @@ export class BitcoinServices {
         try {
             const url = new CoindeskApi().coinsStatus();
             const response = await this.httpRequest.get<CurrentCoinsStatus>(url);
-            //TODO mapper
-            return response.data as ECCurrentCoinsStatus;
+            return new CoindeskMapper().toECCurrentCoinsStatus(response.data);
         } catch (error) {
             console.log(error);
             throw error;
