@@ -12,7 +12,7 @@ exports[`BitcoinView => render => Should render correctly when data is loaded 1`
       description="EURDescription"
       rate="1"
       rate_float={1}
-      updateISOTime="2021-08-07T12:45:00+00:00"
+      updateISOTime={"2021-08-07T12:45:00.000Z"}
     />
   </div>
   <div
@@ -23,7 +23,7 @@ exports[`BitcoinView => render => Should render correctly when data is loaded 1`
       description="USDDescription"
       rate="1"
       rate_float={1}
-      updateISOTime="2021-08-07T12:45:00+00:00"
+      updateISOTime={"2021-08-07T12:45:00.000Z"}
     />
   </div>
   <div
@@ -34,7 +34,7 @@ exports[`BitcoinView => render => Should render correctly when data is loaded 1`
       description="GBPDescription"
       rate="1"
       rate_float={1}
-      updateISOTime="2021-08-07T12:45:00+00:00"
+      updateISOTime={"2021-08-07T12:45:00.000Z"}
     />
   </div>
   <div

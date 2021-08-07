@@ -6,7 +6,7 @@ import dayjs from "dayjs";
 import { CoinDiffView } from "./coin-diff.view";
 
 export interface CoinInfoViewProps extends ECPriceModel {
-    updateISOTime: string;
+    updateISOTime: dayjs.Dayjs;
 }
 
 export class CoinInfoView extends Component<CoinInfoViewProps> {
@@ -32,7 +32,7 @@ export class CoinInfoView extends Component<CoinInfoViewProps> {
                 <hr/>
                 <Row>
                     <Col className={"col-auto"}>
-                        {dayjs(this.props.updateISOTime).format("MMM-DD HH:mm")}
+                        {this.props.updateISOTime.format("MMM-DD HH:mm")}
                     </Col>
                 </Row>
             </Card>

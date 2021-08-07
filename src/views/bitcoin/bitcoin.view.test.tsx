@@ -3,10 +3,11 @@ import { BitcoinView, BitcoinViewState } from "./bitcoin.view";
 import { ECCurrentCoinsStatus } from "../../data/services/bitcoin/models/current-coins-status.model";
 import { Button } from "react-bootstrap";
 import { BitcoinServices } from "../../data/services/bitcoin/bitcoin.services";
+import dayjs from "dayjs";
 
 const mockECCurrentCoinsStatus: ECCurrentCoinsStatus = {
     time: {
-        updatedISO: "2021-08-07T12:45:00+00:00"
+        updatedISO: dayjs("2021-08-07T12:45:00+00:00"),
     },
     bpi: {
         GBP: {
@@ -115,8 +116,8 @@ describe("BitcoinView =>", () => {
         describe("fetchCurrentStatus =>", () => {
             it("Should request coinStatus from BitcoinServices and save the response in the state", async () => {
                 const response: ECCurrentCoinsStatus = {
-                    time: {
-                        updatedISO: "my_time",
+                    bpi: {
+                        GBP: {}
                     },
                 } as ECCurrentCoinsStatus;
 

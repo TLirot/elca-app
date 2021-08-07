@@ -1,4 +1,5 @@
 import { CurrentCoinsStatus, ECCurrentCoinsStatus } from "../models/current-coins-status.model";
+import dayjs from "dayjs";
 
 export class CoindeskMapper {
 
@@ -25,7 +26,7 @@ export class CoindeskMapper {
                 }
             },
             time: {
-                updatedISO: data.time.updatedISO,
+                updatedISO: dayjs(data.time.updatedISO),
             }
         }
     }

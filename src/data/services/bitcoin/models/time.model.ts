@@ -1,3 +1,5 @@
+import dayjs from "dayjs";
+
 export interface TimeModel {
     updated: string,
     updatedISO: string,
@@ -5,5 +7,5 @@ export interface TimeModel {
 }
 
 export interface ECTimeModel {
-    updatedISO: string,
+    updatedISO: dayjs.Dayjs,
 }

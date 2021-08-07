@@ -1,11 +1,12 @@
 import { CoinInfoView, CoinInfoViewProps } from "./coin-info.view";
 import { shallow, ShallowWrapper } from "enzyme";
+import dayjs from "dayjs";
 
 const defaultProps: CoinInfoViewProps = {
     code: "GBP",
     rate: "123",
     description: "GBP Description",
-    updateISOTime: "2021-08-07T12:45:00+00:00",
+    updateISOTime: dayjs("2021-08-07T12:45:00+00:00"),
     rate_float: 123,
 }
 
