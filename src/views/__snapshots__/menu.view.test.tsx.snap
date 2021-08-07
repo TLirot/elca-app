@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MenuView Test => Should render correctly 1`] = `
+exports[`MenuView => Should render correctly. 1`] = `
 <Nav
   fill={false}
   justify={false}

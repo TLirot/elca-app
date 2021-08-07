@@ -4,7 +4,7 @@ import { BitcoinServices } from "../../data/services/bitcoin/bitcoin.services";
 import { Button, Spinner } from "react-bootstrap";
 import { CoinInfoView } from "./coin-info.view";
 
-interface BitcoinViewState {
+export interface BitcoinViewState {
     currentCoinsStatus: ECCurrentCoinsStatus | undefined;
     errorData: string | undefined;
 }
@@ -63,7 +63,7 @@ export class BitcoinView extends Component<Record<never, never>, BitcoinViewStat
                         </div>
                         <div className={"row justify-content-around my-3"}>
                             <div className={"col-2"}>
-                                <Button onClick={this.fetchCurrentStatus}>Reload</Button>
+                                <Button id={"reload-button"} onClick={this.fetchCurrentStatus}>Reload</Button>
                             </div>
                         </div>
                     </div>

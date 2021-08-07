@@ -5,8 +5,13 @@ const initShallowComponent = (): ShallowWrapper<Record<never, never>, Record<nev
     return shallow(<MenuView/>);
 }
 
-describe("MenuView Test =>", () => {
-    it("Should render correctly", () => {
+describe("MenuView =>", () => {
+
+    beforeEach(() => {
+        jest.restoreAllMocks();
+    });
+
+    it("Should render correctly.", () => {
         expect(initShallowComponent()).toMatchSnapshot();
     });
 });

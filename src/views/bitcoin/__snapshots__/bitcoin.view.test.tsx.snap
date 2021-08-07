@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BitcoinView => render => Should render correctly when data is loaded 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="col-4"
+  >
+    <CoinInfoView
+      code="EUR"
+      description="EURDescription"
+      rate="1"
+      rate_float={1}
+      updateISOTime=""
+    />
+  </div>
+  <div
+    className="col-4"
+  >
+    <CoinInfoView
+      code="USD"
+      description="USDDescription"
+      rate="1"
+      rate_float={1}
+      updateISOTime=""
+    />
+  </div>
+  <div
+    className="col-4"
+  >
+    <CoinInfoView
+      code="GBP"
+      description="GBPDescription"
+      rate="1"
+      rate_float={1}
+      updateISOTime=""
+    />
+  </div>
+  <div
+    className="row justify-content-around my-3"
+  >
+    <div
+      className="col-2"
+    >
+      <Button
+        active={false}
+        disabled={false}
+        id="reload-button"
+        onClick={[Function]}
+        variant="primary"
+      >
+        Reload
+      </Button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`BitcoinView => render => Should show the Spinner when there is no data and there is no error 1`] = `
+<Spinner
+  animation="grow"
+/>
+`;
+
+exports[`BitcoinView => render => Should show the error message when network request has failed 1`] = `"network error"`;
