@@ -1,6 +1,7 @@
 import { CurrentCoinsStatus, ECCurrentCoinsStatus } from "../models/current-coins-status.model";
 
 export class CoindeskMapper {
+
     toECCurrentCoinsStatus(data: CurrentCoinsStatus): ECCurrentCoinsStatus {
         return {
             bpi: {
